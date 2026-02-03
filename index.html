@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample Parallax Inertia for Marynax</title>
+
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --text: #1f1f1f;
+    --muted: #555;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 15vh 1rem 10vh;
+  }
+
+  section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    font-size: 1.15rem;
+  }
+
+  /* Middle image section */
+  .image-section {
+    position: relative;
+    height: 33vh; /* 1/3 page height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .book-wrapper {
+    position: absolute;
+    will-change: transform;
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
+  }
+
+  svg {
+    height: 20vh; /* 1/5 screen height */
+    width: auto;
+  }
+
+  footer {
+    height: 20vh;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Sample parallax inertia for Marynax</h1>
+
+<section>
+  <p>
+    I am grateful to Maryna for her videos,  
+    not only for what they show, but for what they promise.
+  </p>
+
+  <p>
+    Reliability is quiet, yet powerful.  
+    At a wedding, you don’t want surprises — you want certainty.
+    You want to know that the registration at the city hall
+    is truly registered, that no detail is floating in doubt.
+  </p>
+
+  <p>
+    I imagine how uneasy it would feel  
+    to stand there, wondering if something essential
+    might fall apart at the last moment.
+  </p>
+
+  <p>
+    And that is why it is so comforting  
+    to count on her during important moments —
+    to know that things are handled,
+    thought through,
+    and carried with care.
+  </p>
+</section>
+
+<div class="image-section">
+  <div class="book-wrapper" id="book">
+    <!-- SVG Book -->
+    <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3b3b3b"/>
+          <stop offset="100%" stop-color="#1f1f1f"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Book body -->
+      <rect x="20" y="10" rx="6" ry="6" width="160" height="230" fill="url(#cover)" />
+      <rect x="30" y="20" width="140" height="210" fill="none" stroke="#aaa" stroke-width="1"/>
+
+      <!-- Title -->
+      <text x="100" y="120" text-anchor="middle"
+            font-family="Georgia, serif"
+            font-size="16"
+            fill="#f0f0f0">
+        Maryna
+      </text>
+      <text x="100" y="145" text-anchor="middle"
+            font-family="Georgia, serif"
+            font-size="14"
+            fill="#cccccc">
+        Design Guide
+      </text>
+    </svg>
+  </div>
+</div>
+
+<section>
+  <p>
+    I like her style because it doesn’t shout.
+    It stands straight.
+  </p>
+
+  <p>
+    Classic, sober, yet undeniably stylish —
+    proud without arrogance.
+    Colors match because they belong together,
+    not because they want attention.
+  </p>
+
+  <p>
+    There is harmony in how everything fits:
+    the look, the tone, the intention.
+    It mirrors her personality —
+    well-thought communication,
+    straight to the point,
+    without bullshit.
+  </p>
+</section>
+
+<footer></footer>
+
+<script>
+  const book = document.getElementById("book");
+
+  let currentY = 0;
+  let targetY = 0;
+  const maxMove = window.innerHeight * 0.2; // 1/5 screen height
+
+  window.addEventListener("scroll", () => {
+    const rect = book.parentElement.getBoundingClientRect();
+    const progress = 1 - rect.top / window.innerHeight;
+    targetY = Math.max(0, Math.min(maxMove, progress * maxMove));
+  });
+
+  function animate() {
+    // inertia / easing
+    currentY += (targetY - currentY) * 0.08;
+    book.style.transform = `translateY(${currentY}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
