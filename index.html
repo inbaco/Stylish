@@ -1,94 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample Parallax Inertia for Marynax</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maryna – Design Guide</title>
 
 <style>
-  :root {
-    --bg: #f6f5f2;
-    --text: #1f1f1f;
-  }
+:root {
+  --bg: #f5f4f2;
+  --white: #ffffff;
+  --text: #1f1f1f;
+  --muted: #666;
+  --accent: #c2a36b;
+}
 
-  body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin: 15vh 1rem 10vh;
-    font-weight: normal;
-  }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
+/* HEADER */
+header {
+  padding: 12vh 1.5rem 8vh;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* TEXT SECTIONS */
+section {
+  background: var(--white);
+  padding: 3.5rem 1.5rem;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+section p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+
+/* IMAGE / PARALLAX SECTION */
+.image-section {
+  position: relative;
+  height: 50vh;
+  background: #eceae6;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 18px 25px rgba(0,0,0,0.25));
+  will-change: transform;
+}
+
+.book-wrapper svg {
+  height: 25vh;
+  width: auto;
+}
+
+/* RESPONSIVE IMAGES */
+.full-image {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* DESKTOP REFINEMENTS */
+@media (min-width: 768px) {
   section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-    font-size: 1.15rem;
+    padding: 5rem 2rem;
   }
 
-  /* IMAGE SECTION */
-  .image-section {
-    position: relative;
-    height: 50vh; /* half viewport */
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
+  section p {
+    font-size: 1.1rem;
   }
-
-  .book-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    will-change: transform;
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
-  }
-
-  svg {
-    height: 25vh; /* 1/4 viewport height */
-    width: auto;
-    display: block;
-  }
-
-  footer {
-    height: 20vh;
-  }
+}
 </style>
 </head>
 
 <body>
 
-<h1>Sample parallax inertia for Marynax</h1>
+<header>
+  <h1>Sample parallax inertia for Marynax</h1>
+</header>
 
 <section>
-  <p>
-    I am grateful to Maryna for her videos,
-    not only for what they show, but for what they promise.
-  </p>
+  <div class="container">
+    <p>
+      I am grateful to Maryna for her videos,
+      not only for what they show,
+      but for what they promise.
+    </p>
 
-  <p>
-    Reliability is quiet, yet powerful.
-    At a wedding, you don’t want surprises — you want certainty.
-    You want to know that the registration at the city hall
-    is truly registered.
-  </p>
+    <p>
+      Reliability is quiet, yet powerful.
+      At a wedding, you don’t want surprises —
+      you want certainty.
+    </p>
 
-  <p>
-    I imagine how uneasy it would feel
-    to stand there, wondering if something essential
-    might fall apart at the last moment.
-  </p>
+    <p>
+      Standing there, unsure if the city hall registration
+      is actually registered,
+      would take away from the moment entirely.
+    </p>
 
-  <p>
-    And that is why it is so comforting
-    to count on her during important moments.
-  </p>
+    <p>
+      That is why it is such a relief
+      to count on her during important moments.
+    </p>
+  </div>
 </section>
 
 <div class="image-section" id="imageSection">
@@ -102,19 +143,18 @@
       </defs>
 
       <rect x="20" y="10" rx="6" ry="6" width="160" height="230" fill="url(#cover)" />
-      <rect x="30" y="20" width="140" height="210"
-            fill="none" stroke="#aaa" stroke-width="1"/>
+      <rect x="30" y="20" width="140" height="210" fill="none" stroke="#aaa"/>
 
       <text x="100" y="120" text-anchor="middle"
             font-family="Georgia, serif"
             font-size="16"
-            fill="#f0f0f0">
+            fill="#f2f2f2">
         Maryna
       </text>
       <text x="100" y="145" text-anchor="middle"
             font-family="Georgia, serif"
             font-size="14"
-            fill="#cccccc">
+            fill="#cfcfcf">
         Design Guide
       </text>
     </svg>
@@ -122,57 +162,58 @@
 </div>
 
 <section>
-  <p>
-    I like her style because it doesn’t shout.
-    It stands straight.
-  </p>
+  <div class="container">
+    <p>
+      I like her style because it doesn’t shout.
+      It stands calm and confident.
+    </p>
 
-  <p>
-    Classic, sober, yet undeniably stylish —
-    proud with harmony and matching colors.
-  </p>
+    <p>
+      Classic and sober, yet proud —
+      with harmony in color,
+      balance in form,
+      and respect for context.
+    </p>
 
-  <p>
-    It reflects her personality:
-    well-thought communication,
-    straight to the point,
-    without bullshit.
-  </p>
+    <p>
+      It fits her personality:
+      well-thought communication,
+      straight to the point,
+      without bullshit.
+    </p>
+  </div>
 </section>
 
-<footer></footer>
-
 <script>
-  const book = document.getElementById("book");
-  const section = document.getElementById("imageSection");
+const book = document.getElementById("book");
+const section = document.getElementById("imageSection");
 
-  let currentY = 0;
-  let targetY = 0;
+let currentY = 0;
+let targetY = 0;
 
-  function updateTarget() {
-    const rect = section.getBoundingClientRect();
-    const sectionHeight = rect.height;
+function updateTarget() {
+  const rect = section.getBoundingClientRect();
+  const h = rect.height;
 
-    // movement range: middle of top half → middle of bottom half
-    const minY = sectionHeight * 0.25;
-    const maxY = sectionHeight * 0.75;
+  const minY = h * 0.25;
+  const maxY = h * 0.75;
 
-    const progress = 1 - rect.top / window.innerHeight;
-    const clamped = Math.max(0, Math.min(1, progress));
+  const progress = 1 - rect.top / window.innerHeight;
+  const clamped = Math.max(0, Math.min(1, progress));
 
-    targetY = minY + (maxY - minY) * clamped;
-  }
+  targetY = minY + (maxY - minY) * clamped;
+}
 
-  window.addEventListener("scroll", updateTarget);
+window.addEventListener("scroll", updateTarget);
 
-  function animate() {
-    currentY += (targetY - currentY) * 0.08; // inertia
-    book.style.transform = `translate(-50%, ${currentY}px)`;
-    requestAnimationFrame(animate);
-  }
+function animate() {
+  currentY += (targetY - currentY) * 0.08;
+  book.style.transform = `translate(-50%, ${currentY}px)`;
+  requestAnimationFrame(animate);
+}
 
-  updateTarget();
-  animate();
+updateTarget();
+animate();
 </script>
 
 </body>
