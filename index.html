@@ -1,179 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample Parallax Inertia for Marynax</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Parallax Inertia for Marynax</title>
+    <style>
+        :root {
+            --bg-color: #fcfaf7;
+            --text-color: #2c2c2c;
+            --accent-color: #5e5e5e;
+        }
 
-<style>
-  :root {
-    --bg: #f6f5f2;
-    --text: #1f1f1f;
-  }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-  }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
 
-  h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin: 15vh 1rem 10vh;
-    font-weight: normal;
-  }
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 100px;
+            color: var(--accent-color);
+        }
 
-  section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-    font-size: 1.15rem;
-  }
+        .poem-section {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.2rem;
+            white-space: pre-line; /* Maintains poem structure */
+        }
 
-  /* IMAGE SECTION */
-  .image-section {
-    position: relative;
-    height: 50vh; /* half viewport */
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-  }
+        /* The Parallax Container */
+        .image-section {
+            height: 50vh; /* Half viewport height */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: rgba(0,0,0,0.02);
+            border-radius: 8px;
+            margin: 40px 0;
+        }
 
-  .book-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    will-change: transform;
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
-  }
+        /* The Book Container */
+        .book-wrapper {
+            position: absolute;
+            height: 25vh; /* 1/4 viewport height */
+            width: auto;
+            will-change: transform;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+        }
 
-  svg {
-    height: 25vh; /* 1/4 viewport height */
-    width: auto;
-    display: block;
-  }
+        svg {
+            height: 100%;
+            width: auto;
+        }
 
-  footer {
-    height: 20vh;
-  }
-</style>
+        footer {
+            height: 20vh;
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>Sample parallax inertia for Marynax</h1>
+    <div class="container">
+        <h1>Sample Parallax Inertia for Marynax</h1>
 
-<section>
-  <p>
-    I am grateful to Maryna for her videos,
-    not only for what they show, but for what they promise.
-  </p>
+        <div class="poem-section">
+            In the flicker of the frame, a steady hand,
+            A reliability that few truly command.
+            When bells were set to ring and vows to exchange,
+            I sought a soul whose focus wouldn't stray or range.
 
-  <p>
-    Reliability is quiet, yet powerful.
-    At a wedding, you don’t want surprises — you want certainty.
-    You want to know that the registration at the city hall
-    is truly registered.
-  </p>
+            To wonder if the ink had met the city's page,
+            Would be a weight too heavy for such a stage.
+            But with you, the worry fades into the light,
+            Knowing every moment is captured exactly right.
+            How sweet the peace, in milestones so grand,
+            To have a friend like you, firm upon the sand.
+        </div>
 
-  <p>
-    I imagine how uneasy it would feel
-    to stand there, wondering if something essential
-    might fall apart at the last moment.
-  </p>
+        <div class="image-section" id="parallax-trigger">
+            <div class="book-wrapper" id="book">
+                <svg viewBox="0 0 150 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="130" height="180" rx="5" fill="#3d3d3d" />
+                    <rect x="10" y="10" width="15" height="180" rx="2" fill="#2a2a2a" />
+                    <text x="75" y="80" font-family="Arial" font-size="10" fill="#d4af37" text-anchor="middle">MARYNA</text>
+                    <text x="75" y="100" font-family="Arial" font-size="10" fill="#d4af37" text-anchor="middle">DESIGN</text>
+                    <text x="75" y="120" font-family="Arial" font-size="10" fill="#d4af37" text-anchor="middle">GUIDE</text>
+                    <line x1="40" y1="140" x2="110" y2="140" stroke="#d4af37" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
 
-  <p>
-    And that is why it is so comforting
-    to count on her during important moments.
-  </p>
-</section>
+        <div class="poem-section">
+            A vision of the classic, sober and refined,
+            Where harmony and purpose are perfectly aligned.
+            No wasted breath, no "bullshit" in the air,
+            Just colors matched with intentional care.
 
-<div class="image-section" id="imageSection">
-  <div class="book-wrapper" id="book">
-    <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#3b3b3b"/>
-          <stop offset="100%" stop-color="#1f1f1f"/>
-        </linearGradient>
-      </defs>
+            You speak in truth, straight to the heart of things,
+            With the quiet confidence that wisdom brings.
+            Stylish and proud, yet humble in your grace,
+            Your spirit is mirrored in every chosen space.
+            Thoughtful communication, sharp and ever true,
+            A masterpiece of character, uniquely you.
+        </div>
+        
+        <footer></footer>
+    </div>
 
-      <rect x="20" y="10" rx="6" ry="6" width="160" height="230" fill="url(#cover)" />
-      <rect x="30" y="20" width="140" height="210"
-            fill="none" stroke="#aaa" stroke-width="1"/>
+    <script>
+        const book = document.getElementById('book');
+        const trigger = document.getElementById('parallax-trigger');
+        
+        let currentY = 0;
+        let targetY = 0;
+        const ease = 0.1; // Lower = more inertia/smoothness
 
-      <text x="100" y="120" text-anchor="middle"
-            font-family="Georgia, serif"
-            font-size="16"
-            fill="#f0f0f0">
-        Maryna
-      </text>
-      <text x="100" y="145" text-anchor="middle"
-            font-family="Georgia, serif"
-            font-size="14"
-            fill="#cccccc">
-        Design Guide
-      </text>
-    </svg>
-  </div>
-</div>
+        function animate() {
+            // Get the bounding box of the section to see where it is on screen
+            const rect = trigger.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
 
-<section>
-  <p>
-    I like her style because it doesn’t shout.
-    It stands straight.
-  </p>
+            // Calculate progress (0 to 1) of the section passing through the viewport
+            // We want the book to move from top-half to bottom-half
+            if (rect.top < viewHeight && rect.bottom > 0) {
+                const scrollPercent = (viewHeight - rect.top) / (viewHeight + rect.height);
+                // Map that 0-1 to a pixel range (moving roughly 1/5th screen height)
+                const moveRange = viewHeight * 0.2; 
+                targetY = (scrollPercent - 0.5) * moveRange;
+            }
 
-  <p>
-    Classic, sober, yet undeniably stylish —
-    proud with harmony and matching colors.
-  </p>
+            // Apply Inertia (Linear Interpolation)
+            currentY += (targetY - currentY) * ease;
+            
+            // Apply transformation
+            book.style.transform = `translateY(${currentY}px)`;
 
-  <p>
-    It reflects her personality:
-    well-thought communication,
-    straight to the point,
-    without bullshit.
-  </p>
-</section>
+            requestAnimationFrame(animate);
+        }
 
-<footer></footer>
-
-<script>
-  const book = document.getElementById("book");
-  const section = document.getElementById("imageSection");
-
-  let currentY = 0;
-  let targetY = 0;
-
-  function updateTarget() {
-    const rect = section.getBoundingClientRect();
-    const sectionHeight = rect.height;
-
-    // movement range: middle of top half → middle of bottom half
-    const minY = sectionHeight * 0.25;
-    const maxY = sectionHeight * 0.75;
-
-    const progress = 1 - rect.top / window.innerHeight;
-    const clamped = Math.max(0, Math.min(1, progress));
-
-    targetY = minY + (maxY - minY) * clamped;
-  }
-
-  window.addEventListener("scroll", updateTarget);
-
-  function animate() {
-    currentY += (targetY - currentY) * 0.08; // inertia
-    book.style.transform = `translate(-50%, ${currentY}px)`;
-    requestAnimationFrame(animate);
-  }
-
-  updateTarget();
-  animate();
-</script>
-
+        animate();
+    </script>
 </body>
 </html>
